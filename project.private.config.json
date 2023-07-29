@@ -1,6 +1,6 @@
 {
-  "projectname": "toy-mp",
-  "setting": {
-    "compileHotReLoad": true
-  }
+    "projectname": "toy-mp",
+    "setting": {
+        "compileHotReLoad": true
+    }
 }

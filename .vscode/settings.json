@@ -1,0 +1,12 @@
+{
+    "editor.fontSize": 12,
+    "editor.lineHeight": 18,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 4,
+    "editor.renderWhitespace": "all",
+    "eslint.validate": [
+        "javascript", "typescript"
+    ],
+    "eslint.alwaysShowStatus": true
+
+}
