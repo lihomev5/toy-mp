@@ -1,0 +1,54 @@
+<view class="root-wrapper">
+
+    <view class="rule-wrapper">
+        有三个箱子分别装有5、8、15个球。甲乙两个轮流在任意一箱中任意取任意多个球，不能不取也不能同时取多个箱子中的，规定取得最后一个球的人获胜。
+    </view>
+
+    <view class="balls-group-wrapper">
+        <view class="balls-wrapper" 
+            wx:for="{{ballsGroups}}" wx:key="groupIdx"
+            wx:for-item="group"
+            wx:for-index="groupIdx"
+        >
+            <block wx:for="{{ group.balls }}" 
+                wx:for-item="ball" 
+                wx:for-index="ballIdx"
+                wx:key="ballIdx">
+                <block wx:if="{{!ball.empty}}">
+                    <view class="ball-wrapper {{ball.selected?'selected': ''}}" 
+                        wx:if="{{!ball.disabled}}"
+                        bind:tap="doSelect"
+                        data-group-idx="{{groupIdx}}"
+                        data-ball-idx="{{ballIdx}}"
+                        style="background-color: {{group.color}};">
+                    </view>
+                    <view class="ball-wrapper disabled" wx:else>{{ball.step}}</view>
+                </block>
+                <view class="ball-wrapper" wx:else>
+                </view>
+                
+                
+            </block>
+           
+        
+        </view>
+    
+    </view>
+
+    <view class="btns-wrapper">
+        <view class="btn-wrapper danager" bind:tap="doStart">
+            开始/重置
+        </view>
+        <block wx:if="{{playState == 'prepare'}}">
+            <view class="btn-wrapper warning" bind:tap="doFirstMe">
+                我先选
+            </view>
+            <view class="btn-wrapper warning" bind:tap="doFirstOther">
+                对方先选
+            </view>
+        </block>
+        <view class="btn-wrapper primary" bind:tap="doConfirm" wx:if="{{playState == 'going'}}">
+            确认所选
+        </view>
+    </view>
+</view>

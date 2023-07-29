@@ -1,5 +1,6 @@
 {
     "pages": [
+        "pages/nim/nim",
         "pages/index/index"
     ],
     "window": {
